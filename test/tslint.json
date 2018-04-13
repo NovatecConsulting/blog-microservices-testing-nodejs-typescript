@@ -1,0 +1,15 @@
+{
+    "extends": "../tslint.json",
+    "rules": {
+        "max-line-length": [
+            true,
+            300
+        ],
+        "no-duplicate-imports":false,
+        "ordered-imports":false,
+        "no-submodule-imports":false,
+        "no-unused-expression":false,
+        "no-implicit-dependencies": [true, "dev"],
+        "object-literal-sort-keys":false
+    }
+}
