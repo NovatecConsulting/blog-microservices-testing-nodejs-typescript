@@ -1,0 +1,54 @@
+{
+    "defaultSeverity": "error",
+    "extends": "tslint:latest",
+    "rulesDirectory": [],
+    "rules": {
+        "max-line-length": [
+            true,
+            170
+        ],
+        "quotemark": [
+            true,
+            "single",
+            "avoid-escape",
+            "avoid-template"
+        ],
+        "max-classes-per-file": [true, 8],
+        "completed-docs": [
+            true,
+            {
+                "enums": true,
+                "classes": {
+                    "visibilities": [
+                        "all"
+                    ]
+                },
+                "interfaces": {
+                    "visibilities": [
+                        "all"
+                    ]
+                },
+                "functions": {
+                    "visibilities": [
+                        "exported"
+                    ]
+                },
+                "methods": {
+                    "locations": "all",
+                    "privacies": [
+                        "public",
+                        "protected"
+                    ]
+                }
+            }
+        ],
+        "variable-name": [
+            true,
+            "check-format",
+            "allow-leading-underscore"
+        ],
+        "no-unused-variable": [ 
+            true
+        ]
+    }
+}
