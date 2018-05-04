@@ -11,7 +11,7 @@ chai.use(chaiHttp);
 chai.use(chaiAsPromised);
 const expect = chai.expect;
 
-describe.only('Endpoint test for VehicleController: POST /vehicles', () => {
+describe('Endpoint test for VehicleController: POST /vehicles', () => {
 
     const VEHICLE_ENDPOINT = '/vehicles';
 
