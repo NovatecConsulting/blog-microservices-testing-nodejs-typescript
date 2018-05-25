@@ -17,7 +17,7 @@ export class VehicleDto {
     public damaged?: boolean;
 
     public toString(): string {
-        return this.damaged ?
+        return this.damaged !== undefined ?
         `${this.constructor.name}{id: ${this.id}, color: ${this.color}, damaged: ${this.damaged}}` :
         `${this.constructor.name}{id: ${this.id}, color: ${this.color}}`;
     }
