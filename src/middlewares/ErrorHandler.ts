@@ -37,8 +37,6 @@ export class ErrorHandler {
      * @param logMeta The log meta data.
      */
     public static async handleServiceErrors(e: any): Promise<void> {
-        // tslint:disable-next-line:no-console
-        console.log(e);
         if (e.constructor === HttpError) {
             throw e;
         }

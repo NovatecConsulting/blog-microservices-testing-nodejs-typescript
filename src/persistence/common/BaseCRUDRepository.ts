@@ -29,11 +29,6 @@ export abstract class BaseCRUDRepository<T extends AbstractMeta> implements IRep
     protected collection: CollectionMeta | undefined;
 
     /**
-     * The stored procedure reference for updating documents.
-     */
-    protected updateProcedure: ProcedureMeta | undefined;
-
-    /**
      * The stored procedure reference for cleaning the collection.
      */
     protected bulkDeleteProcedure: ProcedureMeta | undefined;
@@ -139,7 +134,7 @@ export abstract class BaseCRUDRepository<T extends AbstractMeta> implements IRep
      * Should be considered to be placed in front of each repository method.
      */
     protected async evaluateInit(): Promise<void> {
-        if (this.database === undefined || this.collection === undefined || this.updateProcedure === undefined || this.bulkDeleteProcedure === undefined) {
+        if (this.database === undefined || this.collection === undefined || this.bulkDeleteProcedure === undefined) {
             await this.initDbCollAndStoredProcedures();
         }
     }

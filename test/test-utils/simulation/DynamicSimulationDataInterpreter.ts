@@ -26,26 +26,18 @@ export class DynamicSimulationDataInterpreter {
      */
     private static testRequest(interactionRequest: IRequest, req: Request): boolean {
         if (interactionRequest.params !== undefined && !Object.entries(interactionRequest.params).every((reqPV) => reqPV[1] instanceof RegExp ? (req.params[reqPV[0]] as string).match(reqPV[1]) !== null : req.params[reqPV[0]] === reqPV[1])) {
-            // tslint:disable-next-line:no-console
-            console.error('Params didn\'t match');
             return false;
         }
         if (interactionRequest.queryParams !== undefined && !Object.entries(interactionRequest.queryParams).every((reqQpV) => reqQpV[1] instanceof RegExp ? (req.query[reqQpV[0]] as string).match(reqQpV[1]) !== null : req.query[reqQpV[0]] === reqQpV[1])) {
-            // tslint:disable-next-line:no-console
-            console.error('QueryParams didn\'t match');
             return false;
         }
         if (interactionRequest.headers !== undefined && !Object.entries(interactionRequest.headers).every((reqH) => reqH[1] instanceof RegExp ? (req.get(reqH[0]) as string).match(reqH[1]) !== null : req.get(reqH[0]) === reqH[1])) {
-            // tslint:disable-next-line:no-console
-            console.error('Headers didn\'t match');
             return false;
         }
         if (interactionRequest.body !== undefined) {
             try {
                 deepStrictEqual(req.body, interactionRequest.body);
             } catch (e) {
-                // tslint:disable-next-line:no-console
-                console.error('Body didn\'t match');
                 return false;
             }
         }

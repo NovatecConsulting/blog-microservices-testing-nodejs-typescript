@@ -2,7 +2,7 @@
 import * as chai from 'chai';
 import * as sinonChai from 'sinon-chai';
 import * as chaiAsPromised from 'chai-as-promised';
-import { sandbox, SinonStub, match } from 'sinon';
+import { SinonStub, match, createSandbox } from 'sinon';
 import { WrongArgumentsError } from '../../test-utils/WrongArgumentsError';
 import { VehicleEntity, COLORS } from '../../../src/persistence/entities/VehicleEntity';
 import { VehicleDto } from '../../../src/models/VehicleDto';
@@ -20,7 +20,7 @@ import { VehicleService } from '../../../src/services/VehicleService';
 chai.use(sinonChai);
 chai.use(chaiAsPromised);
 const expect = chai.expect;
-const sb = sandbox.create();
+const sb = createSandbox();
 
 describe('VehicleService', () => {
     describe('#getDetailedVehicle()', () => {
