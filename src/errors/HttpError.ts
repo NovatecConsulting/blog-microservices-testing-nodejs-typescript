@@ -17,4 +17,4 @@ export class HttpError extends Error {
     }
 }
 
-type AllowedStatus = 200 | 400 | 401 | 404 | 500 | 503;
+type AllowedStatus = 200 | 400 | 401 | 404 | 409 | 500 | 503;

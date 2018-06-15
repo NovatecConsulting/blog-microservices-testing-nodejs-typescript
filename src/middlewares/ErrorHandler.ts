@@ -1,5 +1,5 @@
 import { ErrorRequestHandler, NextFunction, Request, RequestHandler, Response } from 'express';
-import { INTERNAL_SERVER_ERROR, NOT_FOUND, SERVICE_UNAVAILABLE } from 'http-status-codes';
+import { CONFLICT, INTERNAL_SERVER_ERROR, NOT_FOUND, SERVICE_UNAVAILABLE } from 'http-status-codes';
 import { DbQueryError } from '../errors/DbQueryError';
 import { HttpError } from '../errors/HttpError';
 import { RepositoryError } from '../errors/RepositoryError';
@@ -54,7 +54,7 @@ export class ErrorHandler {
         } else if (e instanceof TypeError) {
             throw new RepositoryError(e.message);
         } else if (e instanceof DbQueryError) {
-            throw e.code !== 'ECONNRESET' ? new RepositoryError(e.message) : new RepositoryError(e.message, true);
+            throw e.code !== 'ECONNRESET' ? e.code === CONFLICT ? new HttpError(CONFLICT) : new RepositoryError(e.message) : new RepositoryError(e.message, true);
         } else if (await ValidationErrorUtil.checkForValidationErrors(e)) {
             throw new RepositoryError('Validation error(s) occured during transformation from database document into entity.');
         } else {
