@@ -4,7 +4,6 @@ import * as chaiAsPromised from 'chai-as-promised';
 import { VehicleEntity, COLORS } from '../../../src/persistence/entities/VehicleEntity';
 import { VehicleDto } from '../../../src/models/VehicleDto';
 // Database util
-import { DocumentDbTestUtil } from '../../test-utils/DocumentDbTestUtil';
 import VehicleRepository from '../../../src/persistence/VehicleRepository';
 // Class under test
 import { VehicleService } from '../../../src/services/VehicleService';
@@ -22,14 +21,9 @@ describe('VehicleService Database Integration tests', () => {
             await VehicleRepository.create(vehicleEntityOne);
             await VehicleRepository.create(vehicleEntityTwo);
 
-            const expectedFirstVehicle = new VehicleDto();
-            expectedFirstVehicle.id = vehicleEntityOne.id;
-            expectedFirstVehicle.color = vehicleEntityOne.color;
+            const expectedFirstVehicle = new VehicleDto(vehicleEntityOne.id, vehicleEntityOne.color);
             expectedFirstVehicle.damaged = undefined;
-
-            const expectedSecondVehicle = new VehicleDto();
-            expectedSecondVehicle.id = vehicleEntityTwo.id;
-            expectedSecondVehicle.color = vehicleEntityTwo.color;
+            const expectedSecondVehicle = new VehicleDto(vehicleEntityTwo.id, vehicleEntityTwo.color);
             expectedSecondVehicle.damaged = undefined;
             const expectedVehicles = [expectedFirstVehicle, expectedSecondVehicle];
 
