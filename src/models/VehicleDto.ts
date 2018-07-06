@@ -16,9 +16,17 @@ export class VehicleDto {
     @Expose()
     public damaged?: boolean;
 
+    constructor(id: string, color: COLORS, damaged?: boolean) {
+        this.id = id;
+        this.color = color;
+        if (damaged !== undefined) {
+            this.damaged = damaged;
+        }
+    }
+
     public toString(): string {
         return this.damaged !== undefined ?
-        `${this.constructor.name}{id: ${this.id}, color: ${this.color}, damaged: ${this.damaged}}` :
-        `${this.constructor.name}{id: ${this.id}, color: ${this.color}}`;
+            `${this.constructor.name}{id: ${this.id}, color: ${this.color}, damaged: ${this.damaged}}` :
+            `${this.constructor.name}{id: ${this.id}, color: ${this.color}}`;
     }
 }

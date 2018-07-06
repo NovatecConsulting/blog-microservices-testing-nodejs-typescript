@@ -38,7 +38,7 @@ describe('Integration test for DamageService', () => {
             await expect(result).to.be.rejectedWith(HttpError).and.eventually.has.property('statusCode', SERVICE_UNAVAILABLE);
         });
 
-        it(`GIVEN vehicle id="${invalidResponseVehicle.id}", WHEN getDamageState() is executed AND DamageService responds with inavlid body THEN the Promise will be rejected with HttpError(SERVICE_UNAVAILABLE).`, async () => {
+        it(`GIVEN vehicle id="${invalidResponseVehicle.id}", WHEN getDamageState() is executed AND DamageService responds with invalid body THEN the Promise will be rejected with HttpError(SERVICE_UNAVAILABLE).`, async () => {
 
             const result = DamageService.getDamageState(invalidResponseVehicle.id);
 
