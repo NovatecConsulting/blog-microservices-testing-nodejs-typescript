@@ -28,5 +28,6 @@ Following npm scripts can be used to run, test and build the project:
 - ```test``` runs all tests.
 - ```test:unit``` runs all unit tests.
 - ```test:int``` runs all integration tests.
+- ```test:contract``` runs all contract tests.
 - ```simulation``` starts the simulation server.
   

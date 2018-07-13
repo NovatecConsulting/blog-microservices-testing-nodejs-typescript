@@ -4,6 +4,7 @@
 /test/reports
 .nyc_output
 /docs
+/test/contract/contract/logs/pact.log
 
 # dependencies
 /node_modules

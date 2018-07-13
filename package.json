@@ -15,6 +15,7 @@
     "test": "npm run test:unit && npm run test:int",
     "test:unit": "cross-env NODE_ENV=test nyc mocha \"test/unit/**/*.spec.ts\" --opts ./mocha.opts",
     "test:int": "cross-env NODE_ENV=test mocha \"test/int/**/*.spec.ts\" --opts ./mocha.opts --timeout 10000",
+    "test:contract": "cross-env NODE_ENV=test mocha \"test/contract/**/*.spec.ts\" --opts ./mocha.opts --timeout 10000",
     "simulation": "node -r ts-node/register test/test-utils/simulation/SimulationServer.ts"
   },
   "repository": {
@@ -66,6 +67,7 @@
     "typescript": "^2.8.3"
   },
   "dependencies": {
+    "@pact-foundation/pact": "^5.9.1",
     "body-parser": "^1.18.3",
     "class-transformer": "^0.1.9",
     "class-transformer-validator": "^0.5.0",
