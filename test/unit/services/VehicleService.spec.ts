@@ -51,7 +51,7 @@ describe('VehicleService', () => {
 
             const result = VehicleService.getDetailedVehicle(id);
 
-            expect(result).to.be.eventually.deep.equal(expectedVehicleDto);
+            await expect(result).to.be.eventually.deep.equal(expectedVehicleDto);
         });
 
         it(`GIVEN an id = "${id}" that doesn't exist, WHEN getDetailedVehicle() is executed, THEN the Promise will be rejected with HttpError(${NOT_FOUND}).`, async () => {
@@ -60,7 +60,7 @@ describe('VehicleService', () => {
 
             const result = VehicleService.getDetailedVehicle(id);
 
-            expect(result).to.be.rejectedWith(notFoundError);
+            await expect(result).to.be.rejectedWith(notFoundError);
         });
 
         it(`GIVEN an id = "${id}", WHEN getDetailedVehicle() is executed AND getDamageState() rejects with ${httpError}, THEN the Promise will be rejected with ${httpError}.`, async () => {
@@ -71,7 +71,7 @@ describe('VehicleService', () => {
 
             const result = VehicleService.getDetailedVehicle(id);
 
-            expect(result).to.be.rejectedWith(httpError);
+            await expect(result).to.be.rejectedWith(httpError);
         });
 
         it(`GIVEN an id = "${id}", WHEN getDetailedVehicle() is executed AND plainToClass() rejects with ${someError}, THEN the Promise will be rejected with ${httpError}.`, async () => {
@@ -81,7 +81,7 @@ describe('VehicleService', () => {
 
             const result = VehicleService.getDetailedVehicle(id);
 
-            expect(result).to.be.rejectedWith(httpError);
+            await expect(result).to.be.rejectedWith(httpError);
         });
 
         it(`GIVEN an id = "${id}", WHEN getDetailedVehicle() is executed AND findOne() rejects with ${repositoryError}, THEN the Promise will be rejected with ${httpError}.`, async () => {
@@ -90,7 +90,7 @@ describe('VehicleService', () => {
 
             const result = VehicleService.getDetailedVehicle(id);
 
-            expect(result).to.be.rejectedWith(httpError);
+            await expect(result).to.be.rejectedWith(httpError);
         });
     });
 });
