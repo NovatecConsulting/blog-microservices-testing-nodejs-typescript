@@ -1,6 +1,6 @@
 # Microservices testing with Node.js and TypeScript
 
-This demo repository corresponds to [this blog post](https://blog.novatec-gmbh.de). It shows a real world example for realization of the testing pyramid with TypeScript and Node.js in combination with Microsoft Azure.
+This demo repository corresponds to [this blog post](https://blog.novatec-gmbh.de/modern-microservice-testing-concept-real-world-example). It shows a real world example for realization of the testing pyramid with TypeScript and Node.js in combination with Microsoft Azure.
 
 Basically the project is serving a RESTful API for dealing with vehicles. The idea behind it, is that a vehicle can be created and retrieved. Moreover a list of all vehicles can be retrieved.
 
